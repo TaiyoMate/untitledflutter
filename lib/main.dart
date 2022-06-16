@@ -51,9 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.network(
-              'https://images.prismic.io/and-engineer/1145635c-dbc8-41d2-8beb-529351ad0892_icon_kboy_02.jpg?auto=compress,format',
-            ),
+            Image.asset('images/kboy.jpeg'),
             ElevatedButton(
               child: Text(text),
               onPressed: () async {
