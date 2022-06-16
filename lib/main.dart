@@ -14,7 +14,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        '/': (context) => const MyHomePage(
+              title: 'あいあ',
+            ),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/next': (context) => NextPage(),
+      },
     );
   }
 }
@@ -47,14 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ElevatedButton(
           child: Text('次へ'),
           onPressed: () {
-            // ここに押したら反応するコードを書く
-            // 画面遷移のコード
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => NextPage(),
-              ),
-            );
+            Navigator.pushNamed(context, '/next');
           },
         ),
       ),
