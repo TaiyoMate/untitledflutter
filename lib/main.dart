@@ -45,10 +45,15 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text('KBOYのFlutter大学！！！'),
       ),
-      body: Center(
+      body: Container(
+        width: double.infinity,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Image.network(
+              'https://images.prismic.io/and-engineer/1145635c-dbc8-41d2-8beb-529351ad0892_icon_kboy_02.jpg?auto=compress,format',
+            ),
             ElevatedButton(
               child: Text(text),
               onPressed: () async {
@@ -64,7 +69,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 print(result);
               },
             ),
-            Text(text),
           ],
         ),
       ),
