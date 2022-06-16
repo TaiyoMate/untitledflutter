@@ -51,7 +51,10 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Image.asset('images/kboy.jpeg'),
+            Icon(
+              Icons.directions_car,
+              size: 200,
+            ),
             ElevatedButton(
               child: Text(text),
               onPressed: () async {
