@@ -37,6 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  String text = '次へ';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,18 +46,26 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('KBOYのFlutter大学！！！'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: Text('次へ'),
-          onPressed: () {
-            // ここに押したら反応するコードを書く
-            // 画面遷移のコード
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => NextPage(),
-              ),
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: Text(text),
+              onPressed: () async {
+                // ここに押したら反応するコードを書く
+                // 画面遷移のコード
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => NextPage('じーこさん'),
+                  ),
+                );
+                text = result;
+                print(result);
+              },
+            ),
+            Text(text),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
