@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:untitledflutter/next_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,32 +50,32 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Icon(
-              Icons.directions_car,
-              size: 200,
+            Container(
+              width: double.infinity,
+              child: Text(
+                'KBOYさん',
+                textAlign: TextAlign.end,
+                style: TextStyle(
+                  fontSize: 40,
+                ),
+              ),
             ),
-            ElevatedButton(
-              child: Text(text),
-              onPressed: () async {
-                // ここに押したら反応するコードを書く
-                // 画面遷移のコード
-                final result = await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => NextPage('じーこさん'),
-                  ),
-                );
-                text = result;
-                print(result);
-              },
+            DefaultTextStyle(
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.purple,
+              ),
+              child: Column(
+                children: [
+                  Text('ジーコさん'),
+                  Text('ジーコさん'),
+                  Text('ジーコさん'),
+                ],
+              ),
             ),
+            Text('ジーコさん'),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
