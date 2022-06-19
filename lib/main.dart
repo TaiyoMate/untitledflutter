@@ -28,22 +28,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  String text = '次へ';
-
-  final myFocusNode = FocusNode();
-
-  String name = "";
-
-  final myController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,38 +36,28 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Container(
         width: double.infinity,
-        child: Column(
-          children: [
-            TextField(
-              autofocus: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: '田中太郎',
-              ),
-              onChanged: (text) {
-                name = text;
-              },
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Container(
+              width: 160.0,
+              color: Colors.red,
             ),
-            TextField(
-              controller: myController,
-              focusNode: myFocusNode,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                hintText: '趣味',
-              ),
+            Container(
+              width: 160.0,
+              color: Colors.blue,
             ),
-            ElevatedButton(
-              child: Text('新規登録'),
-              onPressed: () {
-                showDialog(
-                  context: context,
-                  builder: (context) {
-                    return AlertDialog(
-                      content: Text(myController.text),
-                    );
-                  },
-                );
-              },
+            Container(
+              width: 160.0,
+              color: Colors.green,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.yellow,
+            ),
+            Container(
+              width: 160.0,
+              color: Colors.orange,
             ),
           ],
         ),
