@@ -38,6 +38,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   String text = '次へ';
 
+  final myFocusNode = FocusNode();
+
+  String name = "";
+
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,33 +53,38 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Container(
         width: double.infinity,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              width: double.infinity,
-              child: Text(
-                'KBOYさん',
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontSize: 40,
-                ),
+            TextField(
+              autofocus: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: '田中太郎',
+              ),
+              onChanged: (text) {
+                name = text;
+              },
+            ),
+            TextField(
+              controller: myController,
+              focusNode: myFocusNode,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: '趣味',
               ),
             ),
-            DefaultTextStyle(
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.purple,
-              ),
-              child: Column(
-                children: [
-                  Text('ジーコさん'),
-                  Text('ジーコさん'),
-                  Text('ジーコさん'),
-                ],
-              ),
+            ElevatedButton(
+              child: Text('新規登録'),
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      content: Text(myController.text),
+                    );
+                  },
+                );
+              },
             ),
-            Text('ジーコさん'),
           ],
         ),
       ),
